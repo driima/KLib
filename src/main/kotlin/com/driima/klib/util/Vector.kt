@@ -19,16 +19,26 @@ class Vector(var x: Double = 0.0, var y: Double = 0.0) {
         return Vector(x * other.x, y * other.y)
     }
 
-    operator fun div(other: Vector): Vector {
-        return Vector(x / other.x, y / other.y)
-    }
-
     operator fun times(scalar: Double): Vector {
         return Vector(x * scalar, y * scalar)
     }
 
+    operator fun timesAssign(other: Vector) {
+        x *= other.x
+        y *= other.y
+    }
+
+    operator fun div(other: Vector): Vector {
+        return Vector(x / other.x, y / other.y)
+    }
+
     operator fun div(scalar: Double): Vector {
         return Vector(x / scalar, y / scalar)
+    }
+
+    operator fun divAssign(other: Vector) {
+        x /= other.x
+        y /= other.y
     }
 
     fun length(): Double {
